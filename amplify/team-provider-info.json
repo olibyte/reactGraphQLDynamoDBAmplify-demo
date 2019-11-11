@@ -9,6 +9,11 @@
             "UnauthRoleName": "todo-todo-20191110222553-unauthRole",
             "StackName": "todo-todo-20191110222553",
             "StackId": "arn:aws:cloudformation:us-west-2:634159314720:stack/todo-todo-20191110222553/dc937150-03ac-11ea-93be-0625b49f10d2"
+        },
+        "categories": {
+            "auth": {
+                "todo73556630": {}
+            }
         }
     }
 }
