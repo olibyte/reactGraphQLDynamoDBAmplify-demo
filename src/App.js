@@ -1,10 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Auth from 'aws-amplify';
+import { Auth, API, graphqlOperation } from 'aws-amplify';
 import awsConfig from './aws-exports';
 import { withAuthenticator } from 'aws-amplify-react';
+import * as queries from './graphql/queries';
+
 Auth.configure(awsConfig);
+API.configure(awsConfig);
 
 
 function App() {
