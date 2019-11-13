@@ -5,6 +5,7 @@ import { Auth, API, graphqlOperation } from 'aws-amplify';
 import awsConfig from './aws-exports';
 import { withAuthenticator } from 'aws-amplify-react';
 import * as queries from './graphql/queries';
+import * as mutations from './graphql/mutations';
 
 Auth.configure(awsConfig);
 API.configure(awsConfig);
@@ -17,6 +18,9 @@ function App() {
 
   const oneTodo = API.graphql(graphqlOperation(queries.getTodo, {id: "d3749075-7aa4-4ef6-95ab-857b09616ab3"}));
   console.log(oneTodo);
+
+  const todo = {name: "app", description: "new todo"};
+  const newTodo = API.graphql(graphqlOperation(mutations.createTodo, {input: todo}));
 
   return (
     <div className="App">
