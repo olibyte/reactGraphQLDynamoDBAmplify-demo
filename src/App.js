@@ -11,6 +11,13 @@ API.configure(awsConfig);
 
 
 function App() {
+
+  const allToDos = API.graphql(graphqlOperation(queries.listTodos));
+  console.log(allToDos);
+
+  const oneTodo = API.graphql(graphqlOperation(queries.getTodo, {id: "d3749075-7aa4-4ef6-95ab-857b09616ab3"}));
+  console.log(oneTodo);
+
   return (
     <div className="App">
       <header className="App-header">
