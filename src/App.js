@@ -21,12 +21,15 @@ function deleteTodo(todo) {
 
 function App() {
 
-  const allToDos = API.graphql(graphqlOperation(queries.listTodos));
-  console.log(allToDos);
+  const userTodos = API.graphql(graphqlOperation(queries.listTodos, {filter:{'name':{'eq':"ocben1"}}}));
+  console.log(userTodos);
+
+  const allTodos = API.graphql(graphqlOperation(queries.listTodos));
+  console.log(allTodos);
 
   const oneTodo = API.graphql(graphqlOperation(queries.getTodo, {id: "d3749075-7aa4-4ef6-95ab-857b09616ab3"}))
   .then(function(todo) {
-    updateTodo(todo['data']['getTodo'], "new desc");
+    // updateTodo(todo['data']['getTodo'], "new desc");
     // deleteTodo(todo['data']['getTodo']);
   });
   console.log(oneTodo);
