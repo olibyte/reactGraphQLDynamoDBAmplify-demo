@@ -19,8 +19,13 @@ function App() {
   const oneTodo = API.graphql(graphqlOperation(queries.getTodo, {id: "d3749075-7aa4-4ef6-95ab-857b09616ab3"}));
   console.log(oneTodo);
 
-  const todo = {name: "app", description: "new todo"};
-  const newTodo = API.graphql(graphqlOperation(mutations.createTodo, {input: todo}));
+  Auth.currentAuthenticatedUser({
+    bypassCache: false
+  }).then(function(user) {
+    console.log("User: " + JSON.stringify(user));
+    const todo = {name: user['username'], description: "new todo"};
+    const newTodo = API.graphql(graphqlOperation(mutations.createTodo, {input: todo}));
+  }).catch(err => console.log(err));
 
   return (
     <div className="App">
