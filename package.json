@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@aws-amplify/cli": "^12.10.1",
-    "aws-amplify": "^5.2.7",
+    "aws-amplify": "^6.6.4",
     "aws-amplify-react": "^2.6.3",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
